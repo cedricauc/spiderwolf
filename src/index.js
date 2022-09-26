@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Home from './Home';
-import Games from './Games'
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
 
 
@@ -13,10 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/games" element={<Games />} />
-      </Routes>
+      <App />
     </BrowserRouter>
   </React.StrictMode>
 )
