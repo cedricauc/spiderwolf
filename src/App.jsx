@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route, Outlet} from 'react-router-dom';
-import Home from './pages/Home.jsx';
-import Games from './pages/Games.jsx'
-import Game from './pages/Game.jsx'
-import Register from './pages/Register';
+import Home from './pages/Home/Index.jsx';
+import Games from './pages/Games/Index.jsx'
+import Game from './pages/Details/Index.jsx'
+import Register from './pages/Account/Index';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 
