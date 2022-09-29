@@ -1,26 +1,22 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { makeStyles } from '@mui/styles'
 import { Person } from '@mui/icons-material'
 import { Button, Box, Menu, MenuItem } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
 import SearchBox from './SearchBox'
 
-const useStyles = makeStyles((theme) => ({
-  nav: {
-    flex: 1,
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
-    [theme.breakpoints.up('md')]: {
-      marginLeft: 250,
-    },
+const NavbarBox = styled(Box)(({ theme }) => ({
+  flex: 1,
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly',
+  [theme.breakpoints.up('md')]: {
+    marginLeft: 250,
   },
 }))
 
 export default function Navbar() {
-  const classes = useStyles()
-
   //react useState hook pour l'état ouverture/fermeture
   const [open, setState] = React.useState(null)
 
@@ -37,7 +33,7 @@ export default function Navbar() {
   }
 
   return (
-    <Box component="div" className={classes.nav} position="static">
+    <NavbarBox component="div" position="static">
       <Button
         component={Link}
         to="/games"
@@ -70,8 +66,8 @@ export default function Navbar() {
 
       <Button
         component={Link}
-        to="/#register"
-        id="register-button"
+        to="/account"
+        id="navbar-register-button"
         variant="contained"
         aria-haspopup="false"
         sx={{
@@ -120,6 +116,6 @@ export default function Navbar() {
           <MenuItem onClick={handleMenuClose}>Se déconnecter</MenuItem>
         </Menu>
       </Box>
-    </Box>
+    </NavbarBox>
   )
 }

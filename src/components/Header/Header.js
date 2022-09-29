@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { makeStyles } from '@mui/styles'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import {
@@ -15,47 +14,43 @@ import {
   ListItemButton,
   ListItemText,
 } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
 import logo from '../../assets/img/logo.png'
 
 import Navbar from './Navbar'
 
-const useStyles = makeStyles((theme) => ({
-  header: {
-    margin: 0,
-    backgroundColor: 'primary.main',
+const LogoBox = styled(Box)(({ theme }) => ({
+  zIndex: 1000,
+  [theme.breakpoints.down('md')]: {
+    height: 205,
+    top: -18,
   },
-  logo: {
-    [theme.breakpoints.down('md')]: {
-      height: 205,
-      top: -18,
-    },
-    [theme.breakpoints.up('md')]: {
-      height: 410,
-      top: -34,
-    },
-  },
-  navWrapper: {
-    flex: 1,
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  btnWrapper: {
-    display: 'flex',
-    marginTop: 'auto',
-    flexDirection: 'column',
-    alignItems: 'center',
-    alignSelf: 'flex-end',
+  [theme.breakpoints.up('md')]: {
+    height: 410,
+    top: -34,
   },
 }))
 
-function Header() {
-  const classes = useStyles()
+const NavBox = styled(Box)(({ theme }) => ({
+  flex: 1,
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.up('md')]: {
+    display: 'flex',
+  },
+}))
 
+const BtnBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  marginTop: 'auto',
+  flexDirection: 'column',
+  alignItems: 'center',
+  alignSelf: 'flex-end',
+}))
+
+function Header() {
   //react useState hook pour l'état ouverture/fermeture
   const [open, setState] = React.useState(null)
 
@@ -68,21 +63,23 @@ function Header() {
   }
 
   return (
-    <AppBar position="static" className={classes.header}>
+    <AppBar
+      position="static"
+      sx={{ margin: 0, backgroundColor: 'primary.main' }}
+    >
       <Container maxWidth="xl" disableGutters>
         <Toolbar>
           <Link to="/">
-            <Box
+            <LogoBox
               component="img"
               position="absolute"
-              className={classes.logo}
               alt="Spiderwolf"
               src={logo}
             />
           </Link>
-          <Box component="div" position="static" className={classes.navWrapper}>
+          <NavBox component="div" position="static">
             <Navbar />
-          </Box>
+          </NavBox>
           <IconButton
             edge="start"
             color="inherit"
@@ -140,8 +137,11 @@ function Header() {
                 </ListItemButton>
               </Box>
 
-              <Box component="div" className={classes.btnWrapper}>
+              <BtnBox component="div">
                 <Button
+                  component={Link}
+                  to="/account"
+                  id="account-login-button"
                   variant="contained"
                   sx={{
                     m: 1,
@@ -157,6 +157,9 @@ function Header() {
                   Se connecter
                 </Button>
                 <Button
+                  component={Link}
+                  to="/account"
+                  id="account-register-button"
                   variant="contained"
                   sx={{
                     m: 1,
@@ -171,7 +174,7 @@ function Header() {
                 >
                   Créer un compte
                 </Button>
-              </Box>
+              </BtnBox>
             </Box>
           </Drawer>
         </Toolbar>

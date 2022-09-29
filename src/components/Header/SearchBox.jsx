@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { makeStyles } from '@mui/styles'
+import { Link } from 'react-router-dom'
 import { Search } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
@@ -16,34 +16,23 @@ import {
   CardContent,
   IconButton,
 } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
-const useStyles = makeStyles((theme) => ({
-  modalBox: {
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 500,
-    height: 250,
-    boxShadow: 24,
-    p: 4,
-    borderRadius: 8,
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
-  },
-  info: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  form: {
-    display: 'flex',
-    alignItems: 'center',
-  },
+const ModalBox = styled(Box)(({ theme }) => ({
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 500,
+  height: 250,
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 8,
+  display: 'flex',
+  flex: 1,
+  flexDirection: 'column',
 }))
 
 export default function SearchBox() {
-  const classes = useStyles()
-
   //react useState hook pour l'état ouverture/fermeture
   const [open, setState] = React.useState(null)
 
@@ -78,10 +67,9 @@ export default function SearchBox() {
         aria-labelledby="search-modal"
         aria-describedby="spiderwolf-site-search-modal"
       >
-        <Box
+        <ModalBox
           component="div"
           position="absolute"
-          className={classes.modalBox}
           sx={{
             color: 'light.main',
             backgroundColor: 'primary.main',
@@ -94,11 +82,8 @@ export default function SearchBox() {
                 color: 'dark.main',
               }}
               action={
-                <IconButton>
-                  <CloseIcon
-                    sx={{ color: 'dark.main' }}
-                    onClick={handleModalClose}
-                  />
+                <IconButton component={Link} onClick={handleModalClose}>
+                  <CloseIcon sx={{ color: 'dark.main' }} />
                 </IconButton>
               }
               title={'Recherche'}
@@ -112,12 +97,13 @@ export default function SearchBox() {
             >
               <Paper
                 component="span"
-                className={classes.info}
                 sx={{
                   backgroundColor: 'rgb(12, 12, 12, 0.5)',
                   color: 'light.main',
                   p: '4px 2px',
                   mt: 1,
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
               >
                 <LightbulbIcon sx={{ fontSize: 'small', margin: 1 }} />
@@ -130,7 +116,10 @@ export default function SearchBox() {
                 </Typography>
               </Paper>
 
-              <Paper component="form" className={classes.form} sx={{ mt: 2 }}>
+              <Paper
+                component="form"
+                sx={{ mt: 2, display: 'flex', alignItems: 'center' }}
+              >
                 <InputBase
                   sx={{ pl: '10px', flex: 1 }}
                   placeholder="Recherche ..."
@@ -146,7 +135,7 @@ export default function SearchBox() {
               </Paper>
             </CardContent>
           </Card>
-        </Box>
+        </ModalBox>
       </Modal>
     </Box>
   )
