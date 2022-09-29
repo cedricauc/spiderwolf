@@ -11,6 +11,7 @@ import LoginForm from './LoginForm';
 const HeaderLight = styled('h4')({
   color: theme.palette.light.secondary,
   fontSize : '1.5rem',
+  paddingBottom: '2rem'
 })
 
 const Account = () => {
@@ -27,7 +28,7 @@ const Account = () => {
       <HeaderLight>Se connecter</HeaderLight>
 
       {/* Login pour les utilisateurs enrégistrés */}
-      <LoginForm />
+      <LoginForm sx={{mb: '2rem'}}/>
 
       <HeaderLight>Ou</HeaderLight>
       <HeaderLight>Créer un compte</HeaderLight>
