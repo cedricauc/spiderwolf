@@ -27,6 +27,10 @@ const LogoBox = styled(Box)(({ theme }) => ({
     top: -18,
   },
   [theme.breakpoints.up('md')]: {
+    height: 300,
+    top: -34,
+  },
+  [theme.breakpoints.up('lg')]: {
     height: 410,
     top: -34,
   },

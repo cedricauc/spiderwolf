@@ -1,13 +1,12 @@
 import RegisterForm from './RegisterForm'
-import { Box, Container, Grid } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import React from 'react'
 import forest from '../../assets/img/dark-forest.png'
 import { styled } from '@mui/system'
-import { theme } from '../../utils/style/theme'
 import LoginForm from './LoginForm'
 
 const HeaderLight = styled('h4')({
-  color: theme.palette.light.secondary,
+  color: 'white',
   fontSize: '1.5rem',
   paddingBottom: '2rem',
 })
@@ -29,9 +28,10 @@ const Account = () => {
         position="static"
         sx={{
           textAlign: 'center',
+          pt: '5rem'
         }}
       >
-        <Grid container spacing={0} sx={{ pt: 40 }}>
+  
           <HeaderLight>Se connecter</HeaderLight>
 
           {/* Login pour les utilisateurs enrégistrés */}
@@ -42,7 +42,6 @@ const Account = () => {
 
           {/* Register form pour les nouveau utilisateurs */}
           <RegisterForm />
-        </Grid>
       </Container>
     </Box>
   )
