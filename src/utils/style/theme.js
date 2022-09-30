@@ -14,9 +14,17 @@ export const theme = createTheme({
     info: {
       main: '#30556E',
     },
+    // black color
+    black: {
+      main: '#000000',
+    },
     // background
     dark: {
       main: '#0C0C0C',
+    },
+    // about us color
+    about: {
+      main: '#131313',
     },
     // text color
     light: {

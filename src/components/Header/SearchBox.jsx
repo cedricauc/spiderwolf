@@ -75,7 +75,14 @@ export default function SearchBox() {
             backgroundColor: 'primary.main',
           }}
         >
-          <Card sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
+          <Card
+            sx={{
+              display: 'flex',
+              flex: 1,
+              flexDirection: 'column',
+              backgroundColor: 'primary.main',
+            }}
+          >
             <CardHeader
               sx={{
                 backgroundColor: 'rgb(12, 12, 12, 0.5)',

@@ -79,7 +79,7 @@ function Footer() {
                     variant="body2"
                     gutterBottom
                   >
-                    Politique de confidentialité
+                    POLITIQUE DE CONFIDENTIALITE
                   </Typography>
                 </Link>
               </Box>
@@ -92,7 +92,33 @@ function Footer() {
                     variant="body2"
                     gutterBottom
                   >
-                    Pirate's dices
+                    PIRATE'S DICES
+                  </Typography>
+                </Link>
+              </Box>
+              <Box sx={{ mb: 3 }}>
+                <Link href="/" sx={{ color: 'light.main' }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 400,
+                    }}
+                    variant="body2"
+                    gutterBottom
+                  >
+                    LE ROYAUME DE NAWAKIM
+                  </Typography>
+                </Link>
+              </Box>
+              <Box sx={{ mb: 3 }}>
+                <Link href="/" sx={{ color: 'light.main' }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 400,
+                    }}
+                    variant="body2"
+                    gutterBottom
+                  >
+                    ERE MEDIEVAL
                   </Typography>
                 </Link>
               </Box>
