@@ -7,7 +7,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   textAlign: 'center',
-  marginBottom: 40,
+  marginBottom: 50,
 }))
 
 export default function News() {

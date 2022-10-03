@@ -1,13 +1,6 @@
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'
-import {
-  Button,
-  Grid,
-  CardContent,
-  Typography,
-  CardMedia,
-  Card,
-} from '@mui/material'
+import { Grid, CardContent, Typography, CardMedia, Card } from '@mui/material'
 
 import './carousel.scss'
 import pirateDice from '../../assets/img/pirate-s-dices.png'
@@ -16,8 +9,8 @@ import royaumeNawakim from '../../assets/img/royaume-nawakim.jpg'
 export default function Slideshow(props) {
   const items = [
     {
-      name: 'Jeux',
-      caption: 'Jeux en ligne alternatif',
+      name: 'Jeux alternatifs',
+      caption: '',
       contentPosition: 'left',
       items: [
         {
@@ -31,8 +24,8 @@ export default function Slideshow(props) {
       ],
     },
     {
-      name: 'Jeux',
-      caption: 'Jeux en ligne alternatif',
+      name: 'Jeux alternatif',
+      caption: '',
       contentPosition: 'middle',
       items: [
         {
@@ -46,8 +39,8 @@ export default function Slideshow(props) {
       ],
     },
     {
-      name: 'Jeux',
-      caption: 'Jeux en ligne alternatif',
+      name: 'Jeux alternatif',
+      caption: '',
       contentPosition: 'right',
       items: [
         {
@@ -65,7 +58,15 @@ export default function Slideshow(props) {
   return (
     <Carousel
       className="carousel"
-      sx={{ width: { xl: '1000px', md: '400px', sm: '400px' } }}
+      sx={{
+        width: {
+          xl: '1200px',
+          lg: '1000px',
+          md: '800px',
+          sm: '600px',
+          xs: '400px',
+        },
+      }}
     >
       {items.map((item, index) => (
         <Banner item={item} key={item} contentPosition={item.contentPosition} />
@@ -87,9 +88,9 @@ const Banner = (props) => {
 
         <Typography className="Caption">{props.item.caption}</Typography>
 
-        <Button variant="outlined" className="ViewButton">
+        {/* <Button variant="outlined" className="ViewButton">
           En Savoir plus
-        </Button>
+        </Button> */}
       </CardContent>
     </Grid>
   )
@@ -100,7 +101,17 @@ const Banner = (props) => {
     const media = (
       <Grid item xs={4} key={item.name}>
         <CardMedia className="Media" image={item.image} title={item.name}>
-          <Typography className="MediaCaption">{item.name}</Typography>
+          <Typography
+            className="MediaCaption"
+            sx={{
+              display: {
+                xs: 'none',
+                md: 'block',
+              },
+            }}
+          >
+            {item.name}
+          </Typography>
         </CardMedia>
       </Grid>
     )
