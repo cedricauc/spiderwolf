@@ -11,15 +11,27 @@ const FooterBox = styled(Box)(({ theme }) => ({
   },
 }))
 
-const LogoBox = styled(Box)(({ theme }) => ({
+const LogoStyled = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
-    width: 440,
-    marginTop: '-220px',
-    right: 0,
+    width: 300,
+    position: 'static',
   },
   [theme.breakpoints.up('md')]: {
-    width: 880,
-    marginTop: '-440px',
+    marginRight: 80,
+    marginTop: '-100px',
+    width: 500,
+    right: 0,
+  },
+  [theme.breakpoints.up('lg')]: {
+    marginRight: 90,
+    marginTop: '-200px',
+    width: 600,
+    right: 0,
+  },
+  [theme.breakpoints.up('xl')]: {
+    marginRight: 100,
+    marginTop: '-300px',
+    width: 700,
     right: 0,
   },
 }))
@@ -35,7 +47,7 @@ function Footer() {
     >
       <Container maxWidth="xl">
         <Grid container spacing={0}>
-          <Grid item xs={12} sm={3}>
+          <Grid item sm={12} md={3}>
             <Box
               variant="none"
               sx={{
@@ -79,7 +91,7 @@ function Footer() {
                     variant="body2"
                     gutterBottom
                   >
-                    Politique de confidentialité
+                    POLITIQUE DE CONFIDENTIALITE
                   </Typography>
                 </Link>
               </Box>
@@ -92,16 +104,42 @@ function Footer() {
                     variant="body2"
                     gutterBottom
                   >
-                    Pirate's dices
+                    PIRATE'S DICES
+                  </Typography>
+                </Link>
+              </Box>
+              <Box sx={{ mb: 3 }}>
+                <Link href="/" sx={{ color: 'light.main' }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 400,
+                    }}
+                    variant="body2"
+                    gutterBottom
+                  >
+                    LE ROYAUME DE NAWAKIM
+                  </Typography>
+                </Link>
+              </Box>
+              <Box sx={{ mb: 3 }}>
+                <Link href="/" sx={{ color: 'light.main' }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 400,
+                    }}
+                    variant="body2"
+                    gutterBottom
+                  >
+                    ERE MEDIEVAL
                   </Typography>
                 </Link>
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={9}>
+          <Grid item sm={12} md={9}>
             <Box sx={{ display: 'flex' }}>
               <Link to="/">
-                <LogoBox
+                <LogoStyled
                   component="img"
                   position="absolute"
                   alt="Spiderwolf"

@@ -1,8 +1,10 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Person } from '@mui/icons-material'
 import { Button, Box, Menu, MenuItem } from '@mui/material'
 import { styled } from '@mui/material/styles'
+
+import { HashLink as Link } from 'react-router-hash-link'
 
 import SearchBox from './SearchBox'
 
@@ -32,11 +34,21 @@ export default function Navbar() {
     setState(null)
   }
 
+  const location = useLocation()
+
+  // fonction quand la navigation est active
+  const isActive = (path) => {
+    return location.pathname === path ? 'active' : ''
+  }
+
   return (
     <NavbarBox component="div" position="static">
       <Button
         component={Link}
-        to="/games"
+        to={{
+          pathname: '/',
+          hash: '#games',
+        }}
         id="games-button"
         sx={{ color: 'light.main' }}
         aria-haspopup="false"
@@ -46,7 +58,10 @@ export default function Navbar() {
 
       <Button
         component={Link}
-        to="/#news"
+        to={{
+          pathname: '/',
+          hash: '#news',
+        }}
         id="news-button"
         sx={{ color: 'light.main' }}
         aria-haspopup="false"
@@ -56,7 +71,10 @@ export default function Navbar() {
 
       <Button
         component={Link}
-        to="/#about"
+        to={{
+          pathname: '/',
+          hash: '#about',
+        }}
         id="news-button"
         sx={{ color: 'light.main' }}
         aria-haspopup="false"
@@ -70,11 +88,16 @@ export default function Navbar() {
         id="navbar-register-button"
         variant="contained"
         aria-haspopup="false"
+        className={isActive('/account')}
         sx={{
           borderRadius: 50,
           backgroundColor: 'light.main',
           color: 'primary.main',
           '&:hover': {
+            backgroundColor: 'primary.main',
+            color: 'light.main',
+          },
+          '&.active': {
             backgroundColor: 'primary.main',
             color: 'light.main',
           },
@@ -99,7 +122,7 @@ export default function Navbar() {
 
         <Menu
           id={idMenu}
-          aria-labelledby="demo-positioned-button"
+          aria-labelledby="user-menu-button"
           anchorEl={open}
           open={openMenu}
           onClose={handleMenuClose}

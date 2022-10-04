@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import {
@@ -20,6 +20,8 @@ import logo from '../../assets/img/logo.png'
 
 import Navbar from './Navbar'
 
+import { HashLink as Link } from 'react-router-hash-link'
+
 const LogoBox = styled(Box)(({ theme }) => ({
   zIndex: 1000,
   [theme.breakpoints.down('md')]: {
@@ -28,7 +30,7 @@ const LogoBox = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.up('md')]: {
     height: 300,
-    top: -34,
+    top: -25,
   },
   [theme.breakpoints.up('lg')]: {
     height: 410,
@@ -64,6 +66,13 @@ function Header() {
   const toggleDrawer = (open) => (event) => {
     //change l'état de la fonction suivant la valeur de open
     setState(open)
+  }
+
+  const location = useLocation()
+
+  // fonction quand la navigation est active
+  const isActive = (path) => {
+    return location.pathname === path ? 'active' : ''
   }
 
   return (
@@ -122,18 +131,33 @@ function Header() {
               <Divider sx={{ mb: 2, borderColor: 'light.main' }} />
 
               <Box sx={{ mb: 2 }}>
-                <ListItemButton to="/games">
+                <ListItemButton
+                  to={{
+                    pathname: '/',
+                    hash: '#games',
+                  }}
+                >
                   <ListItemText primary="Jeux" sx={{ color: 'light.main' }} />
                 </ListItemButton>
 
-                <ListItemButton to="/#news">
+                <ListItemButton
+                  to={{
+                    pathname: '/',
+                    hash: '#news',
+                  }}
+                >
                   <ListItemText
                     primary="Nouveautés"
                     sx={{ color: 'light.main' }}
                   />
                 </ListItemButton>
 
-                <ListItemButton to="/#about">
+                <ListItemButton
+                  to={{
+                    pathname: '/',
+                    hash: '#about',
+                  }}
+                >
                   <ListItemText
                     primary="A propos de nous"
                     sx={{ color: 'light.main' }}
@@ -147,6 +171,7 @@ function Header() {
                   to="/account"
                   id="account-login-button"
                   variant="contained"
+                  className={isActive('/account')}
                   sx={{
                     m: 1,
                     width: 1,
@@ -154,17 +179,22 @@ function Header() {
                     color: 'secondary.main',
                     '&:hover': {
                       backgroundColor: 'secondary.main',
+                      color: 'light.main',
+                    },
+                    '&.active': {
+                      backgroundColor: 'primary.main',
                       color: 'light.main',
                     },
                   }}
                 >
                   Se connecter
                 </Button>
-                <Button
+                {/* <Button
                   component={Link}
                   to="/account"
                   id="account-register-button"
                   variant="contained"
+                  className={isActive('/account')}
                   sx={{
                     m: 1,
                     width: 1,
@@ -174,10 +204,14 @@ function Header() {
                       backgroundColor: 'secondary.main',
                       color: 'light.main',
                     },
+                    '&.active': {
+                      backgroundColor: 'primary.main',
+                      color: 'light.main',
+                    },
                   }}
                 >
                   Créer un compte
-                </Button>
+                </Button> */}
               </BtnBox>
             </Box>
           </Drawer>

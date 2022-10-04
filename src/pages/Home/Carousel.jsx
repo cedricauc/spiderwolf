@@ -63,7 +63,7 @@ export default function Slideshow(props) {
           xl: '1200px',
           lg: '1000px',
           md: '800px',
-          sm: '500px',
+          sm: '600px',
           xs: '400px',
         },
       }}

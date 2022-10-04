@@ -6,6 +6,7 @@ import Details from './pages/Details/Index.jsx'
 import Account from './pages/Account/Index'
 import Header from './components/Header/Header.js'
 import Footer from './components/Footer/Footer.js'
+import ScrollButton from './utils/ScrollButton'
 
 const App = () => {
   const Layout = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <Header />
         <Outlet />
         <Footer />
+        <ScrollButton />
       </>
     )
   }
