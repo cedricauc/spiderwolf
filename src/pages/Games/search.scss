@@ -1,0 +1,33 @@
+.search {
+
+    &__input {
+        width     : 80%;
+        transition: transform 250ms ease-in-out;
+    }
+
+    &__input>div>input {
+        margin             : 14px 0;
+        background-color   : rgba(235, 235, 235, 0.2);
+        background-image   : url('../../assets/img/search.svg'), ;
+        background-repeat  : no-repeat;
+        background-size    : 18px 18px;
+        background-position: 2% center;
+        border-radius      : 50px;
+        border             : 0;
+        transition         : all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style    : preserve-3d;
+        color              : #fff;
+        padding            : 15px 50px;
+        display            : block;
+        font-size          : 18px;
+        line-height        : 20px;
+        // &:hover,
+        // &:focus {
+        //     box-shadow: none;
+        //     border: 0;
+        //     outline: none;
+        // }
+    }
+
+}
