@@ -7,11 +7,12 @@ import {
   CardMedia,
   Card,
   CardActionArea,
+  Link,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import { useNavigate } from 'react-router-dom'
 
-import pirateDice from '../../assets/img/pirate-s-dices.png'
-import royaumeNawakim from '../../assets/img/royaume-nawakim.jpg'
+import { gameList as data } from '../../datas/gameList.js'
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   display: 'flex',
@@ -27,9 +28,14 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }))
 
 function Games() {
+  let navigate = useNavigate()
+  const handleCardClick = (id) => {
+    navigate('/games/' + id)
+  }
+
   return (
     <StyledContainer id="container" maxWidth="xl" position="static">
-      <StyledBox component="div" sx={{}}>
+      <StyledBox component="div">
         <Typography
           variant="h3"
           sx={{ color: 'primary.main', mb: 10 }}
@@ -39,50 +45,32 @@ function Games() {
         </Typography>
       </StyledBox>
       <Stack direction="row" spacing={10}>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="200"
-              image={pirateDice}
-              alt="Pirate's dices"
-              sx={{ objectFit: 'fill' }}
-            />
-            <CardContent>
-              <Typography
-                variant="body2"
-                sx={{ color: 'primary.main', textAlign: 'center' }}
+        {data.map((v) => {
+          return (
+            <Card sx={{ maxWidth: 345 }} key={v.id}>
+              <CardActionArea
+                component={Link}
+                onClick={() => handleCardClick(v.id)}
               >
-                Haec igitur Epicuri non probo, inquam. De cetero vellem equidem
-                aut ipse doctrinis fuisset instructior est enim, quod tibi ita
-                videri necesse est, non satis politus iis arfibus, quas qui
-                tenent, eruditi appellan aut ne deterruisset alios a studiis.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="200"
-              image={royaumeNawakim}
-              alt="Les royaumes de Nawakim"
-              sx={{ objectFit: 'fill' }}
-            />
-            <CardContent>
-              <Typography
-                variant="body2"
-                sx={{ color: 'primary.main', textAlign: 'center' }}
-              >
-                Haec igitur Epicuri non probo, inquam. De cetero vellem equidem
-                aut ipse doctrinis fuisset instructior est enim, quod tibi ita
-                videri necesse est, non satis politus iis arfibus, quas qui
-                tenent, eruditi appellan aut ne deterruisset alios a studiis.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={v.image}
+                  alt={v.title}
+                  sx={{ objectFit: 'fill' }}
+                />
+                <CardContent>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: 'primary.main', textAlign: 'center' }}
+                  >
+                    {v.short_description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          )
+        })}
       </Stack>
     </StyledContainer>
   )

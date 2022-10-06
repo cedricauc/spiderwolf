@@ -3,8 +3,8 @@ import Carousel from 'react-material-ui-carousel'
 import { Grid, CardContent, Typography, CardMedia, Card } from '@mui/material'
 
 import './carousel.scss'
-import pirateDice from '../../assets/img/pirate-s-dices.png'
-import royaumeNawakim from '../../assets/img/royaume-nawakim.jpg'
+
+import { gameList as data } from '../../datas/gameList.js'
 
 export default function Slideshow(props) {
   const items = [
@@ -12,46 +12,19 @@ export default function Slideshow(props) {
       name: 'Jeux alternatifs',
       caption: '',
       contentPosition: 'left',
-      items: [
-        {
-          name: "Pirate's dices",
-          image: `${pirateDice}`,
-        },
-        {
-          name: 'Le Royaume de Nawakim',
-          image: `${royaumeNawakim}`,
-        },
-      ],
+      items: data,
     },
     {
       name: 'Jeux alternatif',
       caption: '',
       contentPosition: 'middle',
-      items: [
-        {
-          name: "Pirate's dices",
-          image: `${pirateDice}`,
-        },
-        {
-          name: 'Le Royaume de Nawakim',
-          image: `${royaumeNawakim}`,
-        },
-      ],
+      items: data,
     },
     {
       name: 'Jeux alternatif',
       caption: '',
       contentPosition: 'right',
-      items: [
-        {
-          name: "Pirate's dices",
-          image: `${pirateDice}`,
-        },
-        {
-          name: 'Le Royaume de Nawakim',
-          image: `${royaumeNawakim}`,
-        },
-      ],
+      items: data,
     },
   ]
 
@@ -85,12 +58,7 @@ const Banner = (props) => {
     <Grid item xs={4} key="content">
       <CardContent className="Content">
         <Typography className="Title">{props.item.name}</Typography>
-
         <Typography className="Caption">{props.item.caption}</Typography>
-
-        {/* <Button variant="outlined" className="ViewButton">
-          En Savoir plus
-        </Button> */}
       </CardContent>
     </Grid>
   )
@@ -99,8 +67,8 @@ const Banner = (props) => {
     const item = props.item.items[i]
 
     const media = (
-      <Grid item xs={4} key={item.name}>
-        <CardMedia className="Media" image={item.image} title={item.name}>
+      <Grid item xs={4} key={item.title}>
+        <CardMedia className="Media" image={item.image} title={item.title}>
           <Typography
             className="MediaCaption"
             sx={{
@@ -110,7 +78,7 @@ const Banner = (props) => {
               },
             }}
           >
-            {item.name}
+            {item.title}
           </Typography>
         </CardMedia>
       </Grid>

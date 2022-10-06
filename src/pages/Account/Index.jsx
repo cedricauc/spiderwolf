@@ -28,20 +28,19 @@ const Account = () => {
         position="static"
         sx={{
           textAlign: 'center',
-          pt: '5rem'
+          pt: '5rem',
         }}
       >
-  
-          <HeaderLight>Se connecter</HeaderLight>
+        <HeaderLight>Se connecter</HeaderLight>
 
-          {/* Login pour les utilisateurs enrégistrés */}
-          <LoginForm sx={{ mb: '2rem' }} />
+        {/* Login pour les utilisateurs enrégistrés */}
+        <LoginForm sx={{ mb: '2rem' }} />
 
-          <HeaderLight>Ou</HeaderLight>
-          <HeaderLight>Créer un compte</HeaderLight>
+        <HeaderLight>Ou</HeaderLight>
+        <HeaderLight>Créer un compte</HeaderLight>
 
-          {/* Register form pour les nouveau utilisateurs */}
-          <RegisterForm />
+        {/* Register form pour les nouveau utilisateurs */}
+        <RegisterForm />
       </Container>
     </Box>
   )

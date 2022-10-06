@@ -1,6 +1,10 @@
-import { Box, Container, Grid, Link, Typography } from '@mui/material'
+import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import logo from '../../assets/img/footer-img.png'
 import { styled } from '@mui/material/styles'
+
+import { HashLink as Link } from 'react-router-hash-link'
+
+import { gameList as data } from '../../datas/gameList.js'
 
 const FooterBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -58,19 +62,33 @@ function Footer() {
               }}
             >
               <Box sx={{ mb: 5 }}>
-                <Typography
-                  sx={{
-                    color: 'light.main',
-                    fontWeight: 600,
+                <Button
+                  component={Link}
+                  to={{
+                    pathname: '/',
                   }}
-                  variant="h5"
-                  gutterBottom
+                  sx={{ color: 'light.main' }}
                 >
-                  SPIDERWOLF
-                </Typography>
+                  <Typography
+                    sx={{
+                      color: 'light.main',
+                      fontWeight: 600,
+                    }}
+                    variant="h5"
+                    gutterBottom
+                  >
+                    SPIDERWOLF
+                  </Typography>
+                </Button>
               </Box>
               <Box sx={{ mb: 3 }}>
-                <Link href="/" sx={{ color: 'light.main' }}>
+                <Button
+                  component={Link}
+                  to={{
+                    pathname: '/',
+                  }}
+                  sx={{ color: 'light.main' }}
+                >
                   <Typography
                     sx={{
                       fontWeight: 400,
@@ -80,10 +98,10 @@ function Footer() {
                   >
                     SUPPORT
                   </Typography>
-                </Link>
+                </Button>
               </Box>
               <Box sx={{ mb: 3 }}>
-                <Link href="/" sx={{ color: 'light.main' }}>
+                <Button to="/" sx={{ color: 'light.main' }}>
                   <Typography
                     sx={{
                       fontWeight: 400,
@@ -93,47 +111,31 @@ function Footer() {
                   >
                     POLITIQUE DE CONFIDENTIALITE
                   </Typography>
-                </Link>
+                </Button>
               </Box>
-              <Box sx={{ mb: 3 }}>
-                <Link href="/" sx={{ color: 'light.main' }}>
-                  <Typography
-                    sx={{
-                      fontWeight: 400,
-                    }}
-                    variant="body2"
-                    gutterBottom
-                  >
-                    PIRATE'S DICES
-                  </Typography>
-                </Link>
-              </Box>
-              <Box sx={{ mb: 3 }}>
-                <Link href="/" sx={{ color: 'light.main' }}>
-                  <Typography
-                    sx={{
-                      fontWeight: 400,
-                    }}
-                    variant="body2"
-                    gutterBottom
-                  >
-                    LE ROYAUME DE NAWAKIM
-                  </Typography>
-                </Link>
-              </Box>
-              <Box sx={{ mb: 3 }}>
-                <Link href="/" sx={{ color: 'light.main' }}>
-                  <Typography
-                    sx={{
-                      fontWeight: 400,
-                    }}
-                    variant="body2"
-                    gutterBottom
-                  >
-                    ERE MEDIEVAL
-                  </Typography>
-                </Link>
-              </Box>
+              {data.map(({ id, title }) => {
+                return (
+                  <Box sx={{ mb: 3 }} key={title}>
+                    <Button
+                      component={Link}
+                      to={{
+                        pathname: '/games/' + id,
+                      }}
+                      sx={{ color: 'light.main' }}
+                    >
+                      <Typography
+                        sx={{
+                          fontWeight: 400,
+                        }}
+                        variant="body2"
+                        gutterBottom
+                      >
+                        {title.toUpperCase()}
+                      </Typography>
+                    </Button>
+                  </Box>
+                )
+              })}
             </Box>
           </Grid>
           <Grid item sm={12} md={9}>

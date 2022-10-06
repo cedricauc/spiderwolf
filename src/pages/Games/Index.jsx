@@ -12,8 +12,10 @@ import {
   CardActionArea,
   CardMedia,
   CardContent,
+  Link,
 } from '@mui/material'
 import { useForm, Controller } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 import darkForest from '../../assets/img/dark-forest.png'
 import logo from '../../assets/img/spiderwolf-logo-02.png'
@@ -23,16 +25,18 @@ import './pagination.scss'
 
 import usePagination from './pagination'
 
-import { default as data } from '../../datas/games_data.json'
+import { gameList as data } from '../../datas/gameList.js'
 
 const Games = () => {
-  const { handleSubmit, control } = useForm()
-  const onSubmit = (d) => {
-    console.log(d)
+  const navigate = useNavigate()
+  const handleCardClick = (id) => {
+    navigate('/games/' + id)
   }
 
+  const { control } = useForm()
+
   let [page, setPage] = useState(1)
-  const PER_PAGE = 24
+  const PER_PAGE = 5
 
   const count = Math.ceil(data.length / PER_PAGE)
   const _DATA = usePagination(data, PER_PAGE)
@@ -46,7 +50,7 @@ const Games = () => {
     <Box component="main" position="static">
       <Box
         component="section"
-        id="game-details"
+        id="details"
         position="static"
         sx={{
           backgroundColor: 'dark.main',
@@ -94,12 +98,19 @@ const Games = () => {
                   return (
                     <ListItem key={v.id} sx={{ my: 5 }}>
                       <Card>
-                        <CardActionArea sx={{ display: 'flex' }}>
+                        <CardActionArea
+                          component={Link}
+                          onClick={() => handleCardClick(v.id)}
+                          sx={{
+                            display: 'flex',
+                            backgroundColor: 'light.main',
+                          }}
+                        >
                           <CardMedia
                             component="img"
                             height="200"
                             image={v.image}
-                            alt="Pirate's dices"
+                            alt={v.title}
                             sx={{ objectFit: 'fill', maxWidth: 345 }}
                           />
                           <CardContent>
@@ -111,12 +122,7 @@ const Games = () => {
                                 marginLeft: 5,
                               }}
                             >
-                              Haec igitur Epicuri non probo, inquam. De cetero
-                              vellem equidem aut ipse doctrinis fuisset
-                              instructior est enim, quod tibi ita videri necesse
-                              est, non satis politus iis arfibus, quas qui
-                              tenent, eruditi appellan aut ne deterruisset alios
-                              a studiis.
+                              {v.description}
                             </Typography>
                           </CardContent>
                         </CardActionArea>

@@ -5,8 +5,7 @@ import { Button, Box, Menu, MenuItem } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 import { HashLink as Link } from 'react-router-hash-link'
-
-import SearchBox from './SearchBox'
+import { Search } from '@mui/icons-material'
 
 const NavbarBox = styled(Box)(({ theme }) => ({
   flex: 1,
@@ -106,7 +105,15 @@ export default function Navbar() {
         Créer un compte
       </Button>
 
-      <SearchBox />
+      <Button
+        component={Link}
+        to="/games"
+        id="search-button"
+        aria-haspopup="false"
+        sx={{ color: 'white' }}
+      >
+        <Search sx={{ fontSize: '2rem' }}></Search>
+      </Button>
 
       <Box component="div">
         <Button
