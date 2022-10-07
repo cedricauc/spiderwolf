@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import {
   Box,
   Container,
@@ -25,7 +25,7 @@ import './pagination.scss'
 
 import usePagination from './pagination'
 
-import { gameList as data } from '../../datas/gameList.js'
+import { gameList } from '../../datas/gameList.js'
 
 const Games = () => {
   const navigate = useNavigate()
@@ -36,14 +36,44 @@ const Games = () => {
   const { control } = useForm()
 
   let [page, setPage] = useState(1)
-  const PER_PAGE = 5
+  const PER_PAGE = 4
 
-  const count = Math.ceil(data.length / PER_PAGE)
+  let [data, setData] = useState(gameList)
+
   const _DATA = usePagination(data, PER_PAGE)
 
+  const count = useRef(0)
+
+  count.current = Math.ceil(data.length / PER_PAGE)
+
+  // changement de la page de navigation
   const handleChange = (e, p) => {
     setPage(p)
     _DATA.jump(p)
+  }
+
+  const [textValue, setTextValue] = React.useState(null)
+
+  const onTextChange = (e) => {
+    setTextValue(e.target.value)
+
+    if (!textValue) {
+      return
+    }
+    const re = textValue.toLowerCase()
+
+    // filtrer la liste avec un argument
+    let temp_data = gameList.filter(
+      (obj) =>
+        obj.title.toLowerCase().includes(re) ||
+        obj.description.toLowerCase().includes(re) ||
+        obj.short_description.toLowerCase().includes(re)
+    )
+
+    // changement des données de la liste
+    count.current = Math.ceil(temp_data.length / PER_PAGE)
+    setData(temp_data)
+    _DATA.setData(data)
   }
 
   return (
@@ -83,6 +113,7 @@ const Games = () => {
                 render={({ field, fieldState: { error } }) => (
                   <TextField
                     {...field}
+                    onChange={onTextChange}
                     size="large"
                     variant="filled"
                     className="search__input"
@@ -149,7 +180,7 @@ const Games = () => {
               </Box>
               <Pagination
                 className="pagination"
-                count={count}
+                count={count.current}
                 size="large"
                 page={page}
                 variant="outlined"

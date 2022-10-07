@@ -10,6 +10,7 @@ const StyledGlobalStyle = createGlobalStyle`
       height:100%;
       padding: 0;
       margin: 0;
+      font-family: 'Lato':
     }
 
     * {
