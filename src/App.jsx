@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route, Outlet, Navigate } from 'react-router-dom'
 import Home from './pages/Home/Index.jsx'
 import Games from './pages/Games/Index.jsx'
 import Details from './pages/Details/Index.jsx'
@@ -27,6 +27,7 @@ const App = () => {
         <Route path="/account" element={<Account />} />
         <Route path="/games" element={<Games />} />
         <Route path="/games/:id" element={<Details />} />
+        <Route path="/spiderwolf" element={<Navigate to="/" />} />
         <Route path="*" element={<div>404 error</div>} />
       </Route>
     </Routes>
