@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/spiderwolf/static/css/main.aa3711b0.css",
-    "main.js": "/spiderwolf/static/js/main.9bbf700c.js",
+    "main.js": "/spiderwolf/static/js/main.d12c01fc.js",
     "static/media/logo.png": "/spiderwolf/static/media/logo.11bb9874926a93cba1a4.png",
     "static/media/pirate-s-dices.png": "/spiderwolf/static/media/pirate-s-dices.0166056a3855b2bc3944.png",
     "static/media/intro.png": "/spiderwolf/static/media/intro.c5ec04130c3f9097b0a4.png",
@@ -14,10 +14,10 @@
     "index.html": "/spiderwolf/index.html",
     "static/media/search.svg": "/spiderwolf/static/media/search.dc9acac82212f8c8eb05.svg",
     "main.aa3711b0.css.map": "/spiderwolf/static/css/main.aa3711b0.css.map",
-    "main.9bbf700c.js.map": "/spiderwolf/static/js/main.9bbf700c.js.map"
+    "main.d12c01fc.js.map": "/spiderwolf/static/js/main.d12c01fc.js.map"
   },
   "entrypoints": [
     "static/css/main.aa3711b0.css",
-    "static/js/main.9bbf700c.js"
+    "static/js/main.d12c01fc.js"
   ]
 }
