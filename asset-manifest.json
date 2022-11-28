@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/spiderwolf/static/css/main.aa3711b0.css",
+    "main.js": "/spiderwolf/static/js/main.9bbf700c.js",
+    "static/media/logo.png": "/spiderwolf/static/media/logo.11bb9874926a93cba1a4.png",
+    "static/media/pirate-s-dices.png": "/spiderwolf/static/media/pirate-s-dices.0166056a3855b2bc3944.png",
+    "static/media/intro.png": "/spiderwolf/static/media/intro.c5ec04130c3f9097b0a4.png",
+    "static/media/dark-forest.png": "/spiderwolf/static/media/dark-forest.d3aa121363ce7714021f.png",
+    "static/media/footer-img.png": "/spiderwolf/static/media/footer-img.77afacd02f8ce2f83a91.png",
+    "static/media/about-us.jpg": "/spiderwolf/static/media/about-us.1b177b3094bbf707d971.jpg",
+    "static/media/ere-medievale.png": "/spiderwolf/static/media/ere-medievale.184a063f351f1a16d07d.png",
+    "static/media/spiderwolf-logo-02.png": "/spiderwolf/static/media/spiderwolf-logo-02.b641601a48b08c4ff6e5.png",
+    "static/media/royaume-nawakim.jpg": "/spiderwolf/static/media/royaume-nawakim.fdebacfe9704b6e7e4d3.jpg",
+    "index.html": "/spiderwolf/index.html",
+    "static/media/search.svg": "/spiderwolf/static/media/search.dc9acac82212f8c8eb05.svg",
+    "main.aa3711b0.css.map": "/spiderwolf/static/css/main.aa3711b0.css.map",
+    "main.9bbf700c.js.map": "/spiderwolf/static/js/main.9bbf700c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa3711b0.css",
+    "static/js/main.9bbf700c.js"
+  ]
+}
