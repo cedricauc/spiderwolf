@@ -1,0 +1,25 @@
+.pagination {
+    display        : flex;
+    justify-content: center;
+
+    ul {
+        list-style: none;
+        padding   : 0;
+    }
+
+    ul li {
+        display: inline-block;
+    }
+
+    ul li button {
+        padding  : 15px;
+        color    : #fff;
+        font-size: 24px;
+        border   : 1px solid #fff(0, 0, 0, 0.23);
+    }
+
+    ul li button:hover,
+    ul li button.active {
+        color: #204B8E;
+    }
+}
